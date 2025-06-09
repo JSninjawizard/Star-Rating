@@ -1,0 +1,46 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  width: 80%;
+  background-color: rgb(41, 37, 37);
+  border-radius: 1rem;
+}
+
+.star-container {
+  display: flex;
+}
+.star-container__star {
+  clip-path: polygon(50% 2.45%, 61.8% 38.77%, 100% 38.77%, 69.1% 61.23%, 80.9% 97.55%, 50% 75.1%, 19.1% 97.55%, 30.9% 61.23%, 0% 38.77%, 38.2% 38.77%);
+  background-color: #eb479e;
+  width: 200px;
+  height: 200px;
+}
+
+.text-container {
+  display: flex;
+  justify-content: center;
+}
+.text-container__text {
+  color: whitesmoke;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+/*# sourceMappingURL=style.css.map */
