@@ -7,46 +7,69 @@
 }
 
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.card {
-  width: 80%;
-  background-color: rgb(41, 37, 37);
-  border-radius: 1rem;
-}
-
-.star-container {
-  display: flex;
+  border: 1px solid;
+  display: grid;
   justify-content: center;
   gap: 1rem;
 }
-.star-container__star {
-  clip-path: polygon(50% 2.45%, 61.8% 38.77%, 100% 38.77%, 69.1% 61.23%, 80.9% 97.55%, 50% 75.1%, 19.1% 97.55%, 30.9% 61.23%, 0% 38.77%, 38.2% 38.77%);
-  background-color: #eb479e;
-  width: 50px;
-  height: 50px;
+
+main {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.box-container {
+  font-size: 3rem;
+  height: 5rem;
+  width: 5rem;
+  cursor: pointer;
 }
 
 .colored {
-  background-color: yellow;
+  background-color: rgb(189, 37, 63);
+}
+
+.star {
+  cursor: pointer;
+  clip-path: polygon(50% 2.45%, 61.8% 38.77%, 100% 38.77%, 69.1% 61.23%, 80.9% 97.55%, 50% 75.1%, 19.1% 97.55%, 30.9% 61.23%, 0% 38.77%, 38.2% 38.77%);
+  background-color: rgb(233, 197, 197);
+  background-color: rgba(255, 0, 255, 0.281);
+  height: 100%;
+  width: 100%;
+}
+
+.colored-star {
+  background-color: fuchsia;
 }
 
 .text-container {
   display: flex;
+  gap: 1rem;
   justify-content: center;
+  font-size: 3rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
 }
 .text-container__text {
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
   color: transparent;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
-  letter-spacing: 1.5px;
+  pointer-events: none;
+  transform: translateY(-2rem);
+  transition: transform 0.5s ease;
 }
 
 .show-text {
-  color: whitesmoke;
+  color: red;
+  display: flex;
+  transform: translateY(0rem);
+}
+
+.remove-text {
+  display: flex;
+  transform: translateY(-2rem);
+  transition: all 0.2s ease;
 }
 
 .btn-container {
