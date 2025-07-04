@@ -24,6 +24,7 @@ main {
   height: 5rem;
   width: 5rem;
   cursor: pointer;
+  border: 1px solid;
 }
 
 .colored {
@@ -43,6 +44,20 @@ main {
   background-color: fuchsia;
 }
 
+.clicked-star {
+  animation: fadeOut 0.9s ease;
+}
+
+@keyframes fadeOut {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
 .text-container {
   display: flex;
   gap: 1rem;

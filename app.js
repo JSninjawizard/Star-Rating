@@ -4,7 +4,9 @@ const stars = Array.from(document.querySelectorAll(".star"));
 const textRatings = Array.from(
   document.querySelectorAll(".text-container__text")
 );
+const textContainer = document.querySelector('.text-container')
 
+let isNotClicked = true
 const handleMouseLeaveMain = (e) => {
   const allBoxes = e.target.children;
   Array.from(allBoxes).forEach((el) => {
@@ -25,10 +27,7 @@ const handleMouseEnterBox = (e) => {
   const currentBoxIndex = boxes.indexOf(currentBox);
   const previousBoxesArr =
     currentBoxIndex !== -1 ? boxes.slice(0, currentBoxIndex) : [];
-  //   console.log(previousBoxesArr);
   for (let el of previousBoxesArr) {
-    // el.classList.add("colored");
-
     previousStars = Array.from(el.children);
     previousStars.forEach((star) => {
       star.classList.add("colored-star");
@@ -55,6 +54,7 @@ const handleMouseLeaveBox = (e) => {
     starsInBoxes.classList.remove("colored-star");
   }
 
+  //   text
   for (const [index, text] of Object.entries(textRatings)) {
     if (currentBoxIndex === Number(index)) {
       text.classList.remove("show-text");
@@ -63,12 +63,28 @@ const handleMouseLeaveBox = (e) => {
   }
 };
 
-main.addEventListener("mouseleave", handleMouseLeaveMain);
-for (const box of Array.from(boxes)) {
-  box.addEventListener("mouseenter", handleMouseEnterBox);
-  box.addEventListener("mouseleave", handleMouseLeaveBox);
-}
+const handleMouseClickBox = (e) => {
+if (isNotClicked) {
+  console.log(isNotClicked);
+  if (e.target.children[0]) {
+    e.target.children[0].classList.add("clicked-star");
+    isNotClicked = false
+    textContainer.style.display = 'none'
+  }
 
+  if (e.target.classList.contains("star")) {
+    e.target.classList.add("clicked-star");
+  }
+}
+};
+
+main.addEventListener("mouseleave", handleMouseLeaveMain);
+
+  for (const box of Array.from(boxes)) {
+    box.addEventListener("mouseenter", handleMouseEnterBox);
+    box.addEventListener("mouseleave", handleMouseLeaveBox);
+    box.addEventListener("click", handleMouseClickBox);
+}
 // const testArr = []
 // const test = Array.from(main.children).forEach((el) => {
 //   const eachStar = el.children[0]
