@@ -30,43 +30,56 @@ const test = () => {
 };
 
 const handleMouseClickBox = (e) => {
-    if (isNotClicked) {
-    const currentTarget = e.target
+  if (isNotClicked) {
+    const currentTarget = e.target;
     // !ANOTHER APPROACH --> Start
-    if (currentTarget.classList.contains('box-container')) {
-        console.log('you clicked on box ');
-        
-    }
-    
-    if (currentTarget.classList.contains('star')) {
-        console.log('you clicked on star');
-    }
-    // !ANOTHER APPROACH --> End
-
-
-
-
-        if (e.target.children[0]) {
-            e.target.children[0].classList.add("clicked-star");
-            // console.log(e.target.children[0]);
-      isNotClicked = false;
-      // console.log(stateChecker());
-
-      const currentBox = e.target;
-      const currentBoxIndex = boxes.indexOf(currentBox);
+    if (currentTarget.classList.contains("box-container")) {
+      e.target.children[0].classList.add("clicked-star");
+      const currentTargetIndex = boxes.indexOf(currentTarget);
       for (const [index, text] of Object.entries(textRatings)) {
-        if (currentBoxIndex === Number(index)) {
+        if (currentTargetIndex === Number(index)) {
           text.classList.remove("show-text");
-          //   text.classList.remove("remove-text");
           text.classList.add("chosen-text");
         }
       }
-      
-      if (e.target.classList.contains("star")) {
-          e.target.classList.add("clicked-star");
+      isNotClicked = false;
+    }
+
+    if (currentTarget.classList.contains("star")) {
+      currentTarget.classList.add("clicked-star");
+      const currentTargetIndex = stars.indexOf(currentTarget);
+      for (const [index, text] of Object.entries(textRatings)) {
+        if (currentTargetIndex === Number(index)) {
+          text.classList.remove("show-text");
+          text.classList.add("chosen-text");
         }
+      }
+      isNotClicked = false;
     }
   }
+  // !ANOTHER APPROACH --> End
+
+  // if (e.target.children[0]) {
+  // e.target.children[0].classList.add("clicked-star");
+  // console.log(e.target.children[0]);
+  //   isNotClicked = false;
+  // console.log(stateChecker());
+
+  //   const currentBox = e.target;
+  //   const currentBoxIndex = boxes.indexOf(currentBox);
+  //   for (const [index, text] of Object.entries(textRatings)) {
+  //     if (currentBoxIndex === Number(index)) {
+  //       text.classList.remove("show-text");
+  //       //   text.classList.remove("remove-text");
+  //       text.classList.add("chosen-text");
+  //     }
+  //   }
+
+  //   if (e.target.classList.contains("star")) {
+  //       e.target.classList.add("clicked-star");
+  //     }
+  // }
+  //   }
 };
 
 // ! Boxes

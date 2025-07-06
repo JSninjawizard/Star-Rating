@@ -7,8 +7,6 @@
 }
 
 .container {
-  border: 1px solid;
-  display: grid;
   justify-content: center;
   gap: 1rem;
 }
@@ -24,7 +22,6 @@ main {
   height: 5rem;
   width: 5rem;
   cursor: pointer;
-  border: 1px solid;
 }
 
 .colored {
