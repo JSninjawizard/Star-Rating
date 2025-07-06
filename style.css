@@ -87,6 +87,12 @@ main {
   transition: all 0.2s ease;
 }
 
+.chosen-text {
+  display: flex;
+  transform: translateY(0rem);
+  color: green;
+}
+
 .btn-container {
   display: flex;
   justify-content: center;
